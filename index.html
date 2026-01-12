@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#070a10" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Mogan International Research Center (MIRC)</title>
   <meta name="description" content="Mogan International Research Center (MIRC) — private research & training based in Ankara (Gölbaşı), Türkiye. Food systems, nutrition strategy, and applied risk intelligence." />
 
@@ -11,6 +11,11 @@
   <meta property="og:title" content="Mogan International Research Center (MIRC)" />
   <meta property="og:description" content="Private research & training • Food systems • Nutrition strategy • Applied risk intelligence" />
   <meta property="og:type" content="website" />
+
+  <!-- SF / enterprise typography stack -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Institutional JSON-LD -->
   <script type="application/ld+json">
@@ -21,249 +26,233 @@
     "alternateName":"MIRC",
     "url":"https://mogan-research.center",
     "address":{"@type":"PostalAddress","addressLocality":"Gölbaşı","addressRegion":"Ankara","addressCountry":"TR"},
-    "email":"contact@mogan-research.center",
-    "member":[
-      {"@type":"Person","name":"Prof. Dr. Fatih Yıldız","jobTitle":"Director"},
-      {"@type":"Person","name":"[Your Name]","jobTitle":"Representative, Research Center"}
-    ]
+    "email":"contact@mogan-research.center"
   }
   </script>
 
   <style>
+    /* =========================
+       SAN FRANCISCO WHITE SYSTEM
+       ========================= */
+
     :root{
-      --bg:#070a10; --bg2:#0b0f16;
-      --txt:#ecf2fb; --muted:#b4c0d3; --faint:#72829d;
-      --line:rgba(236,242,251,.10); --line2:rgba(236,242,251,.16);
-      --card:rgba(13,19,32,.62);
-      --shadow:0 24px 90px rgba(0,0,0,.55);
-      --r16:16px; --r24:24px; --r32:32px;
+      /* Whites & neutrals */
+      --bg:#ffffff;
+      --bg-soft:#f7f8fb;
+      --bg-card:#ffffff;
+
+      /* Text */
+      --txt:#0f172a;           /* near-black slate */
+      --muted:#475569;         /* slate-600 */
+      --faint:#94a3b8;         /* slate-400 */
+
+      /* Lines & surfaces */
+      --line:#e5e7eb;          /* gray-200 */
+      --line-strong:#d1d5db;   /* gray-300 */
+
+      /* Accents (SF-tech restrained) */
+      --accentA:#2563eb;       /* blue-600 */
+      --accentB:#14b8a6;       /* teal-500 */
+
+      /* Effects */
+      --shadow:0 18px 48px rgba(15,23,42,.08);
+      --shadow-soft:0 8px 22px rgba(15,23,42,.06);
+
+      /* Radius */
+      --r12:12px;
+      --r16:16px;
+      --r24:24px;
+      --r32:32px;
+
+      /* Layout */
       --max:1160px;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --accentA: rgba(204,220,255,.95);
-      --accentB: rgba(173,248,233,.95);
+
+      /* Fonts */
+      --sans:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family:var(--sans);
       color:var(--txt);
-      background:
-        radial-gradient(900px 520px at 12% 6%, rgba(204,220,255,.12), transparent 60%),
-        radial-gradient(720px 520px at 90% 18%, rgba(173,248,233,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      letter-spacing:.2px;
+      background: linear-gradient(180deg, #ffffff, var(--bg-soft));
+      letter-spacing:.15px;
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
-    .sr{position:absolute; left:-9999px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
 
     /* Topbar */
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(180deg, rgba(7,10,16,.86), rgba(7,10,16,.55));
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 0;
+      padding:14px 0; gap:16px;
     }
-    .brand{display:flex; align-items:center; gap:12px; min-width:280px}
+    .brand{display:flex; align-items:center; gap:12px}
     .mark{
-      width:38px; height:38px; border-radius:14px;
-      border:1px solid var(--line2);
+      width:36px; height:36px; border-radius:12px;
+      border:1px solid var(--line);
       background:
-        radial-gradient(18px 18px at 30% 28%, rgba(204,220,255,.85), rgba(204,220,255,.18) 60%, transparent 72%),
-        radial-gradient(18px 18px at 72% 74%, rgba(173,248,233,.80), rgba(173,248,233,.16) 62%, transparent 74%),
-        linear-gradient(180deg, rgba(236,242,251,.10), rgba(236,242,251,.02));
-      box-shadow: 0 12px 34px rgba(0,0,0,.35);
-      position:relative; overflow:hidden;
+        radial-gradient(16px 16px at 30% 30%, rgba(37,99,235,.18), transparent 65%),
+        radial-gradient(16px 16px at 70% 70%, rgba(20,184,166,.18), transparent 65%),
+        #ffffff;
+      box-shadow: var(--shadow-soft);
     }
-    .mark:after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: conic-gradient(from 220deg, transparent, rgba(236,242,251,.10), transparent);
-      animation: spin 8.5s linear infinite;
-      opacity:.85;
-    }
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .brand h1{margin:0; font-size:13.6px; font-weight:760; letter-spacing:.1px}
+    .brand h1{margin:0; font-size:14px; font-weight:800}
     .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
-    .links{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center;
-    }
+
+    .links{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
     .links a{
-      font-size:12.5px;
+      font-size:13px;
       color:var(--muted);
       padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
+      border-radius:10px;
     }
-    .links a:hover{color:var(--txt); border-color:var(--line)}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--line2);
-      background: linear-gradient(180deg, rgba(236,242,251,.10), rgba(236,242,251,.03));
-      color:var(--txt);
-      font-size:12.5px;
-      box-shadow: 0 16px 44px rgba(0,0,0,.26);
-      cursor:pointer;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform:translateY(-1px); border-color: rgba(236,242,251,.26)}
-    .btn.primary{
-      border-color: rgba(204,220,255,.35);
-      background:
-        radial-gradient(140px 96px at 18% 20%, rgba(204,220,255,.22), transparent 65%),
-        linear-gradient(180deg, rgba(204,220,255,.14), rgba(236,242,251,.04));
-    }
-    .dot{width:8px; height:8px; border-radius:999px; background:var(--accentB); box-shadow:0 0 0 6px rgba(173,248,233,.10)}
+    .links a:hover{background:var(--bg-soft); color:var(--txt)}
 
-    /* HERO (MPI-like: full-bleed image with editorial overlay, then “news” and “topics” blocks) */
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#ffffff;
+      font-size:13px;
+      font-weight:600;
+      box-shadow: var(--shadow-soft);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+    .btn.primary{
+      border-color:rgba(37,99,235,.35);
+      background: linear-gradient(180deg, #ffffff, #f1f5ff);
+      color:var(--accentA);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background:var(--accentB);
+    }
+
+    /* HERO (MPI structure, white SF palette) */
     .hero{
-      margin:22px 0 0;
-      border-radius: var(--r32);
+      margin:28px 0 0;
+      border-radius:var(--r32);
       overflow:hidden;
       border:1px solid var(--line);
-      box-shadow: var(--shadow);
+      background:#ffffff;
+      box-shadow:var(--shadow);
       position:relative;
-      background:#0a0d14;
     }
     .heroMedia{
       position:absolute; inset:0;
       background:
-        linear-gradient(90deg, rgba(7,10,16,.92) 0%, rgba(7,10,16,.68) 46%, rgba(7,10,16,.42) 70%, rgba(7,10,16,.85) 100%),
-        linear-gradient(180deg, rgba(7,10,16,.20) 0%, rgba(7,10,16,.55) 70%, rgba(7,10,16,.92) 100%),
+        linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.72) 46%, rgba(255,255,255,.40) 70%, rgba(255,255,255,.88) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.85)),
         url("assets/hero-mogan.jpg");
       background-size:cover;
       background-position:center;
-      filter:saturate(1.02) contrast(1.02);
-      transform:scale(1.02);
     }
-    .heroInner{
-      position:relative;
-      padding:54px 26px 22px;
-    }
+    .heroInner{position:relative; padding:56px 28px 26px}
     .heroGrid{
       display:grid;
-      grid-template-columns: 1.22fr .78fr;
-      gap:18px;
-      align-items:stretch;
+      grid-template-columns:1.2fr .8fr;
+      gap:20px;
     }
+
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
-      font-size:12px; color:var(--muted);
-      text-transform:uppercase; letter-spacing:.9px;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.9px;
     }
     .pill{
       font-family:var(--mono);
       font-size:11px;
       padding:6px 10px;
       border-radius:999px;
-      border:1px solid var(--line2);
-      color:var(--txt);
-      background: rgba(236,242,251,.05);
+      border:1px solid var(--line);
+      background:#ffffff;
     }
     .headline{
-      margin:14px 0 12px;
+      margin:16px 0 12px;
       font-size:42px;
       line-height:1.05;
       letter-spacing:-.8px;
-      font-weight:800;
-      max-width:24ch;
+      font-weight:900;
+      max-width:26ch;
     }
     .sub{
       margin:0;
-      color:rgba(236,242,251,.86);
-      font-size:15.5px;
-      line-height:1.58;
-      max-width:66ch;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width:70ch;
     }
-    .heroActions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:16px;
-    }
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
 
+    /* News sidebar */
     .heroAside{
-      border-radius: var(--r24);
+      border-radius:var(--r24);
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(13,19,32,.70), rgba(13,19,32,.38));
-      box-shadow: 0 22px 70px rgba(0,0,0,.38);
-      overflow:hidden;
+      background:#ffffff;
+      box-shadow:var(--shadow-soft);
     }
     .asideInner{padding:18px}
     .asideTitle{
-      margin:0 0 10px;
-      font-size:12px;
-      letter-spacing:.9px;
-      text-transform:uppercase;
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:12px; text-transform:uppercase; letter-spacing:.9px;
       color:var(--muted);
-      display:flex; justify-content:space-between; align-items:center; gap:10px;
     }
-    .asideTitle span{
-      font-family:var(--mono);
-      font-size:11px;
-      padding:5px 10px;
-      border-radius:999px;
-      border:1px solid var(--line2);
-      color:var(--muted);
-      background: rgba(236,242,251,.03);
-      white-space:nowrap;
-    }
-    .newsStack{display:flex; flex-direction:column; gap:10px}
+    .newsStack{display:flex; flex-direction:column; gap:10px; margin-top:10px}
     .newsItem{
       border:1px solid var(--line);
-      background: rgba(236,242,251,.03);
-      border-radius:18px;
-      overflow:hidden;
+      border-radius:14px;
+      background:#ffffff;
     }
     .newsItem a{display:block; padding:12px}
     .newsMeta{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      color:var(--faint);
-      font-size:11.8px;
+      display:flex; justify-content:space-between;
       font-family:var(--mono);
+      font-size:11px;
+      color:var(--faint);
     }
-    .newsItem b{display:block; margin-top:6px; font-size:13.8px; font-weight:760; letter-spacing:-.2px}
-    .newsItem p{margin:6px 0 0; color:var(--muted); font-size:12.8px; line-height:1.5}
+    .newsItem b{display:block; margin-top:6px; font-size:14px; font-weight:800}
+    .newsItem p{margin:6px 0 0; font-size:13px; color:var(--muted)}
 
-    .section{padding:26px 0}
+    /* Sections */
+    .section{padding:32px 0}
     .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin:0 0 12px;
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:16px; margin-bottom:14px;
     }
-    .sectionTitle h2{margin:0; font-size:18px; font-weight:820; letter-spacing:-.2px}
-    .sectionTitle p{margin:0; color:var(--muted); font-size:13.5px; line-height:1.4; max-width:74ch}
+    .sectionTitle h2{margin:0; font-size:18px; font-weight:900}
+    .sectionTitle p{margin:0; color:var(--muted); max-width:72ch; font-size:14px}
 
-    /* Topic Specials (MPI-like: image tiles with short descriptors) */
-    .topicRow{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
+    /* Topic tiles */
+    .topicRow{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
     .topic{
       border:1px solid var(--line);
-      border-radius: var(--r24);
+      border-radius:var(--r24);
+      background:#ffffff;
+      box-shadow:var(--shadow-soft);
       overflow:hidden;
-      background: linear-gradient(180deg, rgba(13,19,32,.60), rgba(13,19,32,.26));
-      box-shadow: 0 22px 70px rgba(0,0,0,.32);
       position:relative;
-      min-height: 210px;
+      min-height:220px;
     }
     .topic .img{
       position:absolute; inset:0;
       background:
-        linear-gradient(180deg, rgba(7,10,16,.10), rgba(7,10,16,.92)),
+        linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.92)),
         var(--img);
       background-size:cover;
       background-position:center;
-      filter:saturate(1.02) contrast(1.05);
-      transform:scale(1.02);
     }
     .topic .content{
       position:relative;
@@ -271,436 +260,217 @@
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      min-height: 210px;
+      min-height:220px;
     }
-    .topic .tag{
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:11.6px;
-      color:rgba(236,242,251,.88);
-      letter-spacing:.9px;
-      text-transform:uppercase;
-    }
-    .topic h3{margin:8px 0 6px; font-size:18px; font-weight:840; letter-spacing:-.3px}
-    .topic p{margin:0; color:var(--muted); font-size:13.2px; line-height:1.45}
-
-    /* Publications / Outputs rail */
-    .rail{
-      display:flex;
-      gap:14px;
-      overflow:auto;
-      padding-bottom:8px;
-      scroll-snap-type:x mandatory;
-    }
-    .rail::-webkit-scrollbar{height:10px}
-    .rail::-webkit-scrollbar-thumb{background:rgba(236,242,251,.10); border-radius:999px}
-    .pub{
-      scroll-snap-align:start;
-      flex: 0 0 320px;
-      border:1px solid var(--line);
-      border-radius: var(--r24);
-      overflow:hidden;
-      background: linear-gradient(180deg, rgba(13,19,32,.62), rgba(13,19,32,.28));
-      box-shadow: 0 22px 70px rgba(0,0,0,.30);
-    }
-    .pub .cover{
-      height:160px;
-      background:
-        linear-gradient(180deg, rgba(7,10,16,.12), rgba(7,10,16,.92)),
-        var(--cover);
-      background-size:cover;
-      background-position:center;
-    }
-    .pub .inner{padding:14px}
-    .pub .meta{color:var(--faint); font-family:var(--mono); font-size:11.5px; display:flex; justify-content:space-between; gap:10px}
-    .pub b{display:block; margin-top:8px; font-size:14px; font-weight:820; letter-spacing:-.2px}
-    .pub p{margin:6px 0 0; color:var(--muted); font-size:12.8px; line-height:1.5}
+    .topic h3{margin:8px 0 6px; font-size:18px; font-weight:900}
+    .topic p{margin:0; font-size:13.5px; color:var(--muted)}
 
     /* People */
-    .people{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
+    .people{display:grid; grid-template-columns:1fr 1fr; gap:16px}
     .person{
       border:1px solid var(--line);
-      border-radius: var(--r24);
-      overflow:hidden;
-      background: linear-gradient(180deg, rgba(13,19,32,.62), rgba(13,19,32,.28));
-      box-shadow: 0 22px 70px rgba(0,0,0,.30);
+      border-radius:var(--r24);
+      background:#ffffff;
+      box-shadow:var(--shadow-soft);
     }
     .person .inner{padding:18px}
     .role{
-      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      display:flex; justify-content:space-between; align-items:center;
+      gap:10px;
     }
-    .role b{font-size:16px; font-weight:860; letter-spacing:-.25px}
-    .role span{font-family:var(--mono); font-size:11px; padding:5px 10px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); background: rgba(236,242,251,.03)}
-    .person p{margin:10px 0 0; color:var(--muted); font-size:13.7px; line-height:1.6}
-    .person .links{margin-top:12px; justify-content:flex-start}
-    .person .links a{border:1px solid var(--line); background:rgba(236,242,251,.03)}
+    .role b{font-size:16px; font-weight:900}
+    .role span{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+    }
+    .person p{margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.6}
 
     /* Contact band */
     .band{
       border:1px solid var(--line);
-      border-radius: var(--r32);
-      overflow:hidden;
-      background:
-        radial-gradient(760px 220px at 12% 30%, rgba(204,220,255,.16), transparent 60%),
-        radial-gradient(760px 260px at 92% 38%, rgba(173,248,233,.10), transparent 58%),
-        linear-gradient(180deg, rgba(13,19,32,.62), rgba(13,19,32,.24));
-      box-shadow: var(--shadow);
+      border-radius:var(--r32);
+      background:#ffffff;
+      box-shadow:var(--shadow);
     }
     .band .inner{padding:22px}
-    .band h2{margin:0; font-size:18px; font-weight:880; letter-spacing:-.25px}
-    .band p{margin:8px 0 0; color:var(--muted); line-height:1.6}
-    .bandRow{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:14px}
-    input[type="text"], input[type="email"]{
-      width:min(360px, 92vw);
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid var(--line2);
-      background: rgba(7,10,16,.55);
-      color:var(--txt);
-      outline:none;
+    .band h2{margin:0; font-size:18px; font-weight:900}
+    .band p{margin:8px 0 0; color:var(--muted)}
+
+    footer{
+      padding:32px 0 48px;
+      border-top:1px solid var(--line);
+      margin-top:32px;
+      color:var(--muted);
       font-size:13px;
     }
-    input::placeholder{color:rgba(180,192,211,.70)}
-    .fine{color:var(--faint); font-size:12.5px; line-height:1.55}
-
-    /* Footer */
-    footer{padding:26px 0 46px; color:var(--muted); font-size:12.5px}
-    .foot{
-      border-top:1px solid var(--line);
-      padding-top:16px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      align-items:start;
-    }
-    .footLinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
-    .footLinks a{padding:6px 10px; border-radius:12px; border:1px solid transparent; color:var(--muted)}
-    .footLinks a:hover{border-color:var(--line); color:var(--txt)}
 
     /* Responsive */
-    @media (max-width: 1000px){
+    @media (max-width:1000px){
       .heroGrid{grid-template-columns:1fr}
-      .topicRow{grid-template-columns:1fr}
-      .people{grid-template-columns:1fr}
-      .brand{min-width:auto}
-      .headline{font-size:38px}
-    }
-    @media (prefers-reduced-motion: reduce){
-      .mark:after{animation:none}
-      .btn{transition:none}
+      .topicRow,.people{grid-template-columns:1fr}
+      .headline{font-size:36px}
     }
   </style>
 </head>
 
 <body>
-  <!-- NOTE: Structure intentionally mirrors the “hero + research news + topic specials” feel used on the Max Planck Society homepages. :contentReference[oaicite:0]{index=0} -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="mark"></div>
+        <div>
+          <h1>Mogan International Research Center (MIRC)</h1>
+          <p>Private research & training • Ankara (Gölbaşı)</p>
+        </div>
+      </div>
 
-  <header class="topbar">
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="MIRC Home">
-          <div class="mark" aria-hidden="true"></div>
-          <div>
-            <h1>Mogan International Research Center (MIRC)</h1>
-            <p>Private research & training • Ankara (Gölbaşı), Türkiye</p>
+      <nav class="links">
+        <a href="#topics">Topics</a>
+        <a href="#outputs">Publications</a>
+        <a href="#people">People</a>
+        <a href="#contact" class="btn primary"><span class="dot"></span>Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="heroMedia"></div>
+    <div class="heroInner">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker">
+            <span class="pill">mogan-research.center</span>
+            <span>Research • Training • Advisory</span>
           </div>
-        </a>
+          <h2 class="headline">Research that survives real decisions.</h2>
+          <p class="sub">
+            A private, internationally oriented research center producing decision-grade work
+            in food systems, nutrition strategy, and applied risk intelligence.
+          </p>
+          <div class="heroActions">
+            <a class="btn primary" href="#topics">Explore Topics</a>
+            <a class="btn" href="mailto:contact@mogan-research.center">Email Office</a>
+          </div>
+        </div>
 
-        <nav class="links" aria-label="Primary navigation">
-          <a href="#news">Research News</a>
-          <a href="#topics">Topic Specials</a>
-          <a href="#outputs">Publications</a>
-          <a href="#people">People</a>
-          <a href="#contact">Contact</a>
-          <a class="btn primary" href="mailto:partnerships@mogan-research.center"><span class="dot" aria-hidden="true"></span>Partnerships</a>
-        </nav>
+        <aside class="heroAside">
+          <div class="asideInner">
+            <div class="asideTitle">
+              <strong>Research News</strong>
+              <span>Updated</span>
+            </div>
+            <div class="newsStack">
+              <div class="newsItem">
+                <a href="#">
+                  <div class="newsMeta"><span>Jan 2026</span><span>Food Systems</span></div>
+                  <b>Resilience Brief Series</b>
+                  <p>Short, versioned briefs for institutional continuity planning.</p>
+                </a>
+              </div>
+              <div class="newsItem">
+                <a href="#">
+                  <div class="newsMeta"><span>Jan 2026</span><span>Nutrition</span></div>
+                  <b>Claims Literacy Module</b>
+                  <p>Evidence thresholds that survive audit and procurement.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main id="top" class="wrap">
-
-    <!-- HERO -->
-    <section class="hero" aria-label="Hero">
-      <div class="heroMedia" role="img" aria-label="Hero image"></div>
-
-      <div class="heroInner">
-        <div class="heroGrid">
-          <div>
-            <div class="kicker">
-              <span class="pill">mogan-research.center</span>
-              <span>Research • Training • Advisory</span>
-            </div>
-
-            <h2 class="headline">Research that survives time pressure.</h2>
-            <p class="sub">
-              MIRC is a private, internationally oriented research and training center focused on food systems,
-              nutrition strategy, and applied risk intelligence—built to produce decision-grade briefs, programs,
-              and institutional training.
-            </p>
-
-            <div class="heroActions">
-              <a class="btn primary" href="#topics">Explore Topic Specials</a>
-              <a class="btn" href="#outputs">View Publications</a>
-              <a class="btn" href="mailto:contact@mogan-research.center">Contact Office</a>
-            </div>
-
-            <p class="fine" style="margin-top:14px">
-              Director: Prof. Dr. Fatih Yıldız • Representation: [Your Name]
-            </p>
-          </div>
-
-          <!-- Research News (MPI-like sidebar) -->
-          <aside class="heroAside" id="news" aria-label="Research News">
-            <div class="asideInner">
-              <div class="asideTitle">
-                <strong>Research News</strong>
-                <span id="newsStamp">Updated</span>
-              </div>
-
-              <div class="newsStack" id="newsStack">
-                <!-- Replace with real posts as soon as you have them -->
-                <div class="newsItem">
-                  <a href="#contact">
-                    <div class="newsMeta"><span>Jan 2026</span><span>Food Systems</span></div>
-                    <b>Resilience Brief Series — v1.0</b>
-                    <p>Launching a short, versioned brief format for value-chain fragility and continuity options.</p>
-                  </a>
-                </div>
-
-                <div class="newsItem">
-                  <a href="#contact">
-                    <div class="newsMeta"><span>Jan 2026</span><span>Nutrition Strategy</span></div>
-                    <b>Executive Training Module — claims literacy</b>
-                    <p>A practical framework for label claims, evidence thresholds, and compliance-grade wording.</p>
-                  </a>
-                </div>
-
-                <div class="newsItem">
-                  <a href="#contact">
-                    <div class="newsMeta"><span>Jan 2026</span><span>Risk & Standards</span></div>
-                    <b>Operational standards workshop (pilot)</b>
-                    <p>Audit readiness through practice: decision behavior under standards and resource constraints.</p>
-                  </a>
-                </div>
-              </div>
-
-              <p class="fine" style="margin-top:10px">
-                For submissions & collaboration: <a href="mailto:programs@mogan-research.center" style="text-decoration:underline">programs@mogan-research.center</a>
-              </p>
-            </div>
-          </aside>
+  <!-- TOPICS -->
+  <section class="section" id="topics">
+    <div class="sectionTitle">
+      <h2>Topic Specials</h2>
+      <p>Focused programs where evidence becomes institutional posture.</p>
+    </div>
+    <div class="topicRow">
+      <div class="topic">
+        <div class="img" style="--img:url('assets/topic-foodsystems.jpg')"></div>
+        <div class="content">
+          <h3>Food Systems & Security</h3>
+          <p>Fragility mapping, trade exposure, and resilience options.</p>
         </div>
       </div>
-    </section>
-
-    <!-- TOPIC SPECIALS (MPI-like tile section) -->
-    <section class="section" id="topics">
-      <div class="sectionTitle">
-        <h2>Topic Specials</h2>
-        <p>Curated programs where evidence becomes an implementable institutional posture—short, readable, and reusable. :contentReference[oaicite:1]{index=1}</p>
-      </div>
-
-      <div class="topicRow">
-        <a class="topic" href="#contact" aria-label="Food Systems & Security">
-          <div class="img" style="--img:url('assets/topic-foodsystems.jpg')"></div>
-          <div class="content">
-            <div class="tag"><span class="pill" style="padding:5px 10px">PROGRAM</span> Food Systems</div>
-            <h3>Food Systems & Security</h3>
-            <p>Fragility mapping, import exposure, and resilience options that can be sequenced and governed.</p>
-          </div>
-        </a>
-
-        <a class="topic" href="#contact" aria-label="Nutrition Strategy">
-          <div class="img" style="--img:url('assets/topic-nutrition.jpg')"></div>
-          <div class="content">
-            <div class="tag"><span class="pill" style="padding:5px 10px">BRIEF</span> Nutrition Strategy</div>
-            <h3>Decision-Grade Nutrition</h3>
-            <p>Evidence translation into policy language, labeling constraints, and executive-ready briefs.</p>
-          </div>
-        </a>
-
-        <a class="topic" href="#contact" aria-label="Risk & Standards">
-          <div class="img" style="--img:url('assets/topic-standards.jpg')"></div>
-          <div class="content">
-            <div class="tag"><span class="pill" style="padding:5px 10px">TRAINING</span> Risk & Standards</div>
-            <h3>Operational Standards Literacy</h3>
-            <p>What compliance means under time pressure—how systems behave when the audit becomes real.</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- OUTPUTS / PUBLICATIONS (MPI-like “covers” rail) -->
-    <section class="section" id="outputs">
-      <div class="sectionTitle">
-        <h2>Publications & Outputs</h2>
-        <p>Stable artifacts: briefs, working papers, and training modules—versioned, inspectable, and current. :contentReference[oaicite:2]{index=2}</p>
-      </div>
-
-      <div class="rail" aria-label="Publications rail">
-        <article class="pub" style="--cover:url('assets/cover-brief.jpg')">
-          <div class="cover" style="--cover:url('assets/cover-brief.jpg')"></div>
-          <div class="inner">
-            <div class="meta"><span>Brief</span><span>v1.0</span></div>
-            <b>Resilience Options Under Trade Constraints</b>
-            <p>Short format: assumptions, constraints, options, and a minimal implementation path.</p>
-          </div>
-        </article>
-
-        <article class="pub" style="--cover:url('assets/cover-workingpaper.jpg')">
-          <div class="cover" style="--cover:url('assets/cover-workingpaper.jpg')"></div>
-          <div class="inner">
-            <div class="meta"><span>Working paper</span><span>Draft</span></div>
-            <b>Nutrition Claims: Evidence Thresholds That Survive Audit</b>
-            <p>Wording discipline, defensible thresholds, and compliance-grade claim architecture.</p>
-          </div>
-        </article>
-
-        <article class="pub" style="--cover:url('assets/cover-training.jpg')">
-          <div class="cover" style="--cover:url('assets/cover-training.jpg')"></div>
-          <div class="inner">
-            <div class="meta"><span>Training</span><span>Module</span></div>
-            <b>Standards in Practice: Risk Governance Under Constraints</b>
-            <p>Workshop kit for institutions—practice-first, documents as outputs.</p>
-          </div>
-        </article>
-
-        <article class="pub" style="--cover:url('assets/cover-policy.jpg')">
-          <div class="cover" style="--cover:url('assets/cover-policy.jpg')"></div>
-          <div class="inner">
-            <div class="meta"><span>Policy note</span><span>Short</span></div>
-            <b>Food Security as a Governance Problem</b>
-            <p>How to structure decisions when signals conflict and time compresses the option space.</p>
-          </div>
-        </article>
-      </div>
-
-      <p class="fine" style="margin-top:10px">
-        If you want this section to feel “real” instantly, publish one 1-page PDF “Center Overview” and two 2–6 page briefs, then link them here.
-      </p>
-    </section>
-
-    <!-- PEOPLE -->
-    <section class="section" id="people">
-      <div class="sectionTitle">
-        <h2>People</h2>
-        <p>Accountable, minimal, institutional. Names, roles, and functional routing.</p>
-      </div>
-
-      <div class="people">
-        <div class="person">
-          <div class="inner">
-            <div class="role">
-              <b>Prof. Dr. Fatih Yıldız</b>
-              <span>DIRECTOR</span>
-            </div>
-            <p>Scientific leadership and institutional oversight: research direction, standards, and external scientific relationships.</p>
-            <div class="links">
-              <a href="mailto:director@mogan-research.center">director@mogan-research.center</a>
-              <a href="mailto:contact@mogan-research.center">office routing</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="person">
-          <div class="inner">
-            <div class="role">
-              <b>[Your Name]</b>
-              <span>REPRESENTATIVE</span>
-            </div>
-            <p>Institutional representation and delivery leadership: programs, partnerships, and translation of outputs into deployable briefs and training modules.</p>
-            <div class="links">
-              <a href="mailto:representation@mogan-research.center">representation@mogan-research.center</a>
-              <a href="mailto:partnerships@mogan-research.center">partnerships</a>
-              <a href="mailto:programs@mogan-research.center">programs</a>
-            </div>
-          </div>
+      <div class="topic">
+        <div class="img" style="--img:url('assets/topic-nutrition.jpg')"></div>
+        <div class="content">
+          <h3>Nutrition Strategy</h3>
+          <p>Policy-grade translation of evidence and claims.</p>
         </div>
       </div>
-    </section>
+      <div class="topic">
+        <div class="img" style="--img:url('assets/topic-standards.jpg')"></div>
+        <div class="content">
+          <h3>Risk & Standards</h3>
+          <p>Operational literacy under real constraints.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- CONTACT BAND -->
-    <section class="section" id="contact">
-      <div class="band">
+  <!-- PEOPLE -->
+  <section class="section" id="people">
+    <div class="sectionTitle">
+      <h2>People</h2>
+      <p>Accountable leadership and institutional representation.</p>
+    </div>
+    <div class="people">
+      <div class="person">
         <div class="inner">
-          <h2>Contact the Center</h2>
-          <p>Ankara (Gölbaşı), Türkiye • Email is routed by function for faster response.</p>
-
-          <div class="bandRow">
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn primary" href="mailto:contact@mogan-research.center"><span class="dot" aria-hidden="true"></span>contact@mogan-research.center</a>
-              <a class="btn" href="mailto:partnerships@mogan-research.center">partnerships@mogan-research.center</a>
-              <a class="btn" href="mailto:programs@mogan-research.center">programs@mogan-research.center</a>
-              <a class="btn" href="mailto:media@mogan-research.center">media@mogan-research.center</a>
-            </div>
-
-            <form onsubmit="return intake(event)" aria-label="Contact intake">
-              <label class="sr" for="org">Organization</label>
-              <input id="org" type="text" placeholder="Organization (optional)" />
-              <label class="sr" for="email">Email</label>
-              <input id="email" type="email" placeholder="Your email" required />
-              <button class="btn" type="submit">Send Intake</button>
-            </form>
+          <div class="role">
+            <b>Prof. Dr. Fatih Yıldız</b>
+            <span>Director</span>
           </div>
-
-          <div id="intakeNote" class="fine" style="margin-top:10px"></div>
+          <p>Scientific leadership and institutional oversight.</p>
         </div>
       </div>
-    </section>
-
-    <footer>
-      <div class="foot">
-        <div>
-          <div style="display:flex; align-items:center; gap:10px">
-            <div class="mark" aria-hidden="true" style="width:34px;height:34px;border-radius:14px"></div>
-            <div>
-              <div style="font-weight:860; letter-spacing:-.2px">Mogan International Research Center (MIRC)</div>
-              <div class="fine">Private research & training • Ankara (Gölbaşı), Türkiye • © <span id="y"></span></div>
-            </div>
+      <div class="person">
+        <div class="inner">
+          <div class="role">
+            <b>[Your Name]</b>
+            <span>Representative</span>
           </div>
-          <div class="fine" style="margin-top:10px">
-            This site is a public institutional surface for programs, publications, and partnership routing.
-          </div>
-        </div>
-
-        <div class="footLinks">
-          <a href="#news">News</a>
-          <a href="#topics">Topics</a>
-          <a href="#outputs">Publications</a>
-          <a href="#people">People</a>
-          <a href="mailto:contact@mogan-research.center">Email</a>
+          <p>Programs, partnerships, and external representation.</p>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-  </main>
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="band">
+      <div class="inner">
+        <h2>Contact the Center</h2>
+        <p>Ankara (Gölbaşı), Türkiye • Functional email routing.</p>
+        <div class="heroActions" style="margin-top:14px">
+          <a class="btn primary" href="mailto:contact@mogan-research.center"><span class="dot"></span>contact@mogan-research.center</a>
+          <a class="btn" href="mailto:partnerships@mogan-research.center">partnerships@mogan-research.center</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+<footer>
+  <div class="wrap">
+    © <span id="y"></span> Mogan International Research Center • All rights reserved
+  </div>
+</footer>
 
-    // light “enterprise” behavior: rotates the news stamp time, and simulates an intake
-    const stamp = document.getElementById('newsStamp');
-    const ts = new Date().toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'});
-    stamp.textContent = "Updated " + ts;
-
-    function intake(e){
-      e.preventDefault();
-      const email = (document.getElementById('email').value || "").trim();
-      const org = (document.getElementById('org').value || "").trim();
-      const note = document.getElementById('intakeNote');
-
-      if(!email || !email.includes('@')){
-        note.textContent = "Please enter a valid email.";
-        return false;
-      }
-      note.textContent = "Intake received" + (org ? (" for " + org) : "") + ". Use the functional emails above for fastest routing.";
-      e.target.reset();
-      return false;
-    }
-  </script>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
