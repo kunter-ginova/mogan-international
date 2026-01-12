@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f16" />
+  <title>Mogan International Research Center — MIRC</title>
+  <meta name="description" content="Mogan International Research Center (MIRC) is a private research and training center based in Ankara (Gölbaşı), Türkiye, focused on food systems, nutrition strategy, and applied risk intelligence." />
+  <meta property="og:title" content="Mogan International Research Center (MIRC)" />
+  <meta property="og:description" content="Private research & training center focused on food systems, nutrition strategy, and applied risk intelligence." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0f16'/%3E%3Cpath d='M18 42c10-22 18-22 28 0' fill='none' stroke='%23e7edf6' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M20 24h24' stroke='%23e7edf6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <!-- Minimal JSON-LD for institutional legitimacy -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ResearchOrganization",
+    "name":"Mogan International Research Center",
+    "alternateName":"MIRC",
+    "url":"https://mogan-research.center",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Gölbaşı",
+      "addressRegion":"Ankara",
+      "addressCountry":"TR"
+    },
+    "email":"contact@mogan-research.center",
+    "member":[
+      { "@type":"Person", "name":"Prof. Dr. Fatih Yıldız", "jobTitle":"Director" },
+      { "@type":"Person", "name":"[Your Name]", "jobTitle":"Representative, Research Center" }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg: #070a10;
+      --bg2:#0b0f16;
+      --card:#0d1320;
+      --card2:#0f1726;
+      --txt:#e7edf6;
+      --muted:#a6b2c7;
+      --faint:#6f7e98;
+      --line: rgba(231,237,246,.10);
+      --line2: rgba(231,237,246,.16);
+      --accent:#c9d6ff;
+      --accent2:#b7f7e6;
+      --shadow: 0 20px 70px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--txt);
+      font-family:var(--sans);
+      background:
+        radial-gradient(900px 500px at 10% 10%, rgba(201,214,255,.14), transparent 60%),
+        radial-gradient(700px 420px at 90% 18%, rgba(183,247,230,.10), transparent 58%),
+        radial-gradient(1100px 700px at 55% 100%, rgba(201,214,255,.08), transparent 65%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      letter-spacing:.2px;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,10,16,.88), rgba(7,10,16,.58));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:260px;
+    }
+    .mark{
+      width:40px; height:40px; border-radius:14px;
+      background:
+        radial-gradient(16px 16px at 30% 28%, rgba(201,214,255,.9), rgba(201,214,255,.2) 60%, transparent 70%),
+        radial-gradient(18px 18px at 70% 70%, rgba(183,247,230,.8), rgba(183,247,230,.18) 62%, transparent 72%),
+        linear-gradient(180deg, rgba(231,237,246,.10), rgba(231,237,246,.02));
+      border:1px solid var(--line2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 220deg, transparent, rgba(231,237,246,.10), transparent);
+      animation: spin 7.5s linear infinite;
+      opacity:.9;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .brand h1{font-size:14px; margin:0; font-weight:650; line-height:1.2}
+    .brand p{font-size:12px; margin:2px 0 0; color:var(--muted)}
+    .links{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .links a{
+      font-size:12.5px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .links a:hover{color:var(--txt); border-color:var(--line)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line2);
+      background: linear-gradient(180deg, rgba(231,237,246,.10), rgba(231,237,246,.03));
+      color:var(--txt);
+      font-size:12.5px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.25);
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(231,237,246,.26)}
+    .btn.primary{
+      border-color: rgba(201,214,255,.35);
+      background:
+        radial-gradient(120px 90px at 20% 20%, rgba(201,214,255,.22), transparent 65%),
+        linear-gradient(180deg, rgba(201,214,255,.16), rgba(231,237,246,.04));
+    }
+    .btn .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: rgba(183,247,230,.95);
+      box-shadow: 0 0 0 6px rgba(183,247,230,.10);
+    }
+
+    .hero{
+      padding:72px 0 34px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns: 1fr; }
+      .brand{min-width:auto}
+    }
+    .panel{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(13,19,32,.72), rgba(13,19,32,.38));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel .inner{padding:26px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.9px;
+      text-transform:uppercase;
+    }
+    .kicker .pill{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line2);
+      color:var(--txt);
+      background: rgba(231,237,246,.05);
+    }
+    .headline{
+      margin:14px 0 12px;
+      font-size:40px;
+      line-height:1.06;
+      letter-spacing:-.6px;
+      font-weight:720;
+    }
+    @media (max-width:560px){
+      .headline{font-size:34px}
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+      max-width:62ch;
+    }
+    .facts{
+      margin-top:18px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .fact{
+      display:flex; gap:10px; align-items:center;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(231,237,246,.04);
+      font-size:12.8px;
+      color:var(--muted);
+    }
+    .fact strong{color:var(--txt); font-weight:650}
+    .fact .mini{
+      width:10px; height:10px; border-radius:4px;
+      background: rgba(201,214,255,.80);
+      box-shadow: 0 0 0 6px rgba(201,214,255,.08);
+    }
+
+    .side{
+      display:flex; flex-direction:column; gap:22px;
+    }
+    .card{
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,23,38,.80), rgba(15,23,38,.35));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card .inner{padding:22px}
+    .card h3{
+      margin:0 0 10px;
+      font-size:14px;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .card p{margin:0; color:var(--txt); font-size:14px; line-height:1.55}
+    .card small{display:block; margin-top:8px; color:var(--faint); font-size:12.5px}
+    .divider{height:1px; background:var(--line); margin:14px 0}
+    .list{
+      display:flex; flex-direction:column; gap:10px; margin-top:12px;
+    }
+    .item{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(231,237,246,.03);
+    }
+    .item .t{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .item .t b{font-weight:680; font-size:13.5px}
+    .item .t span{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid var(--line2);
+      color:var(--muted);
+      background: rgba(231,237,246,.04);
+      white-space:nowrap;
+    }
+    .item .d{margin-top:6px; color:var(--muted); font-size:12.8px; line-height:1.45}
+
+    section{
+      padding:28px 0;
+    }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin:0 0 12px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+      font-weight:720;
+    }
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.4;
+      max-width:72ch;
+    }
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+    @media (max-width: 980px){
+      .cards3{grid-template-columns: 1fr}
+    }
+    .tile{
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(13,19,32,.70), rgba(13,19,32,.28));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .tile .inner{padding:22px}
+    .tile h4{margin:0 0 10px; font-size:16px; font-weight:720; letter-spacing:-.2px}
+    .tile ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.65}
+    .tile li{margin:6px 0}
+    .badge-row{
+      display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;
+    }
+    .badge{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line2);
+      color:var(--muted);
+      background: rgba(231,237,246,.03);
+    }
+
+    .people{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+    }
+    @media (max-width: 980px){
+      .people{grid-template-columns:1fr}
+    }
+    .person{
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,23,38,.72), rgba(15,23,38,.26));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .person .inner{padding:22px}
+    .role{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .role b{font-size:16px; font-weight:740; letter-spacing:-.2px}
+    .role span{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--line2);
+      color:var(--muted);
+      background: rgba(231,237,246,.03);
+    }
+    .person p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
+    .person .contact{
+      display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;
+      color:var(--txt);
+      font-size:12.8px;
+    }
+    .person .contact a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(231,237,246,.03);
+      color:var(--txt);
+    }
+    .person .contact a:hover{border-color: rgba(231,237,246,.24)}
+    .quote{
+      margin:16px 0 0;
+      border-left:2px solid rgba(201,214,255,.45);
+      padding-left:14px;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.6;
+    }
+
+    .ctaBand{
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(600px 220px at 15% 30%, rgba(201,214,255,.18), transparent 60%),
+        radial-gradient(520px 240px at 90% 40%, rgba(183,247,230,.12), transparent 55%),
+        linear-gradient(180deg, rgba(13,19,32,.70), rgba(13,19,32,.25));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .ctaBand .inner{padding:24px}
+    .ctaBand h3{margin:0 0 8px; font-size:18px; font-weight:740; letter-spacing:-.2px}
+    .ctaBand p{margin:0; color:var(--muted); line-height:1.6}
+    .ctaBand .row{
+      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .form{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
+    }
+    input[type="email"]{
+      width:min(340px, 86vw);
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line2);
+      background: rgba(7,10,16,.55);
+      color:var(--txt);
+      outline:none;
+      font-size:13px;
+    }
+    input[type="email"]::placeholder{color:rgba(166,178,199,.75)}
+    .footer{
+      padding:28px 0 40px;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    .footgrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      border-top:1px solid var(--line);
+      padding-top:18px;
+    }
+    @media (max-width: 980px){
+      .footgrid{grid-template-columns:1fr}
+    }
+    .fine{color:var(--faint); line-height:1.55}
+    .footlinks{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .footlinks a{
+      padding:6px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      color:var(--muted);
+    }
+    .footlinks a:hover{border-color:var(--line); color:var(--txt)}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .mark:after{animation:none}
+      .btn{transition:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="MIRC Home">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1>Mogan International Research Center <span style="opacity:.8">(MIRC)</span></h1>
+            <p>Private research & training • Ankara (Gölbaşı), Türkiye</p>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Primary navigation">
+          <a href="#center">The Center</a>
+          <a href="#programs">Programs</a>
+          <a href="#outputs">Outputs</a>
+          <a href="#people">People</a>
+          <a href="#partnerships">Partnerships</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="mailto:partnerships@mogan-research.center">
+            <span class="dot" aria-hidden="true"></span> Partnership Inquiry
+          </a>
+          <a class="btn primary" href="#contact">Contact Office</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="grid">
+        <div class="panel">
+          <div class="inner">
+            <div class="kicker">
+              <span class="pill">mogan-research.center</span>
+              <span>Research • Training • Advisory</span>
+            </div>
+
+            <h2 class="headline">
+              Decision-grade research for food systems, nutrition strategy, and applied risk intelligence.
+            </h2>
+
+            <p class="sub">
+              MIRC is a private, internationally networked research and training center based in Ankara (Gölbaşı).
+              We translate evidence and standards into deployable programs, briefs, and executive training for institutions
+              that operate under time pressure.
+            </p>
+
+            <div class="facts" role="list" aria-label="Quick facts">
+              <div class="fact" role="listitem"><span class="mini" aria-hidden="true"></span> <strong>Director</strong>&nbsp;Prof. Dr. Fatih Yıldız</div>
+              <div class="fact" role="listitem"><span class="mini" aria-hidden="true" style="background:rgba(183,247,230,.9)"></span> <strong>Office</strong>&nbsp;Gölbaşı, Ankara</div>
+              <div class="fact" role="listitem"><span class="mini" aria-hidden="true" style="background:rgba(231,237,246,.7)"></span> <strong>Engagements</strong>&nbsp;Programs • Workshops • Advisory</div>
+              <div class="fact" role="listitem"><span class="mini" aria-hidden="true" style="background:rgba(201,214,255,.55)"></span> <strong>Response</strong>&nbsp;Direct office routing</div>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px">
+              <a class="btn primary" href="#programs">Explore Programs</a>
+              <a class="btn" href="#partnerships">Partner With Us</a>
+              <a class="btn" href="#outputs">View Outputs</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="side">
+          <div class="card">
+            <div class="inner">
+              <h3>Current Focus</h3>
+              <p>
+                High-signal work that survives regulation, procurement, and real operational constraints.
+                Minimal rhetoric. Measurable deliverables.
+              </p>
+              <div class="divider"></div>
+              <div class="list">
+                <div class="item">
+                  <div class="t">
+                    <b>Food Systems Resilience</b><span>PROGRAM</span>
+                  </div>
+                  <div class="d">Value-chain fragility, import dependency risk, and resilience options that can be sequenced and governed.</div>
+                </div>
+                <div class="item">
+                  <div class="t">
+                    <b>Nutrition Strategy</b><span>BRIEF</span>
+                  </div>
+                  <div class="d">Framework translation: evidence → policy language → implementation artifacts.</div>
+                </div>
+                <div class="item">
+                  <div class="t">
+                    <b>Risk & Standards Literacy</b><span>TRAINING</span>
+                  </div>
+                  <div class="d">Decision behavior under standards: what compliance means in practice, not in slides.</div>
+                </div>
+              </div>
+              <small>For scoped collaboration: <a href="mailto:programs@mogan-research.center" style="color:var(--accent); text-decoration:underline">programs@mogan-research.center</a></small>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="inner">
+              <h3>Fast Contact Routing</h3>
+              <p>
+                Email is routed by function, not by generic inbox. Use the right channel to reduce latency.
+              </p>
+              <div class="divider"></div>
+              <div class="list">
+                <div class="item">
+                  <div class="t"><b>Partnerships</b><span>INSTITUTIONAL</span></div>
+                  <div class="d"><a href="mailto:partnerships@mogan-research.center" style="text-decoration:underline">partnerships@mogan-research.center</a></div>
+                </div>
+                <div class="item">
+                  <div class="t"><b>Programs</b><span>COURSES</span></div>
+                  <div class="d"><a href="mailto:programs@mogan-research.center" style="text-decoration:underline">programs@mogan-research.center</a></div>
+                </div>
+                <div class="item">
+                  <div class="t"><b>Media</b><span>PRESS</span></div>
+                  <div class="d"><a href="mailto:media@mogan-research.center" style="text-decoration:underline">media@mogan-research.center</a></div>
+                </div>
+              </div>
+              <small>General: <a href="mailto:contact@mogan-research.center" style="color:var(--accent); text-decoration:underline">contact@mogan-research.center</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE CENTER -->
+    <section id="center">
+      <div class="section-title">
+        <h2>The Center</h2>
+        <p>
+          MIRC is built to produce outputs that are usable by institutions: not only publishable, but operationally adoptable.
+          Governance and integrity are treated as first-class constraints.
+        </p>
+      </div>
+
+      <div class="cards3">
+        <div class="tile">
+          <div class="inner">
+            <h4>Mission</h4>
+            <ul>
+              <li>Convert evidence and standards into decision artifacts.</li>
+              <li>Deliver training that changes professional practice, not vocabulary.</li>
+              <li>Support institutions facing food, nutrition, and risk complexity.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">private center</span>
+              <span class="badge">decision-grade</span>
+              <span class="badge">deployable outputs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Operating Model</h4>
+            <ul>
+              <li>Program lines with defined deliverables and timelines.</li>
+              <li>Small-team execution with partner network scaling.</li>
+              <li>Transparency on sponsorship and conflicts of interest.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">program-based</span>
+              <span class="badge">networked</span>
+              <span class="badge">ethics-first</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Integrity Commitments</h4>
+            <ul>
+              <li>Clear separation between research, training, and advisory work.</li>
+              <li>Publication integrity and method disclosure when applicable.</li>
+              <li>Respect for confidentiality in institutional engagements.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">COI disclosure</span>
+              <span class="badge">confidentiality</span>
+              <span class="badge">method clarity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs">
+      <div class="section-title">
+        <h2>Research & Programs</h2>
+        <p>
+          We organize work as program lines—each with a defined audience, delivery format, and execution cadence.
+        </p>
+      </div>
+
+      <div class="cards3">
+        <div class="tile">
+          <div class="inner">
+            <h4>Food Systems & Security</h4>
+            <ul>
+              <li>Value chain fragility mapping and resilience options.</li>
+              <li>Import dependency risk and trade constraint analysis.</li>
+              <li>Institutional playbooks for continuity planning.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">resilience</span><span class="badge">value chains</span><span class="badge">continuity</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Nutrition Strategy & Functional Foods</h4>
+            <ul>
+              <li>Evidence translation into policy and product constraints.</li>
+              <li>Framework development for labeling and claims literacy.</li>
+              <li>Executive briefings for decision-makers.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">policy translation</span><span class="badge">claims literacy</span><span class="badge">briefings</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Risk, Quality & Standards</h4>
+            <ul>
+              <li>Operational interpretation of safety and quality standards.</li>
+              <li>Audit readiness through practice—not paperwork theater.</li>
+              <li>Risk governance under time and resource constraints.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">standards</span><span class="badge">audit readiness</span><span class="badge">risk governance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTPUTS -->
+    <section id="outputs">
+      <div class="section-title">
+        <h2>Outputs</h2>
+        <p>
+          A research center becomes credible when it publishes stable artifacts—papers, briefs, and training modules—kept current and inspectable.
+        </p>
+      </div>
+
+      <div class="cards3">
+        <div class="tile">
+          <div class="inner">
+            <h4>Peer-Reviewed Publications</h4>
+            <ul>
+              <li>Journal articles and book chapters.</li>
+              <li>Method summaries and supporting materials when appropriate.</li>
+              <li>External links to authoritative records (DOI, publisher pages).</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">peer-reviewed</span><span class="badge">traceable</span><span class="badge">linked records</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Briefs & Working Papers</h4>
+            <ul>
+              <li>2–6 page decision artifacts.</li>
+              <li>Clear assumptions, constraints, and recommended options.</li>
+              <li>Updated as conditions change (versioned PDFs).</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">decision artifact</span><span class="badge">versioned</span><span class="badge">deployable</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Training Modules</h4>
+            <ul>
+              <li>Short courses, workshops, executive sessions.</li>
+              <li>Syllabi and learning outcomes built for professionals.</li>
+              <li>Optional certification by program completion.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">workshops</span><span class="badge">executive</span><span class="badge">capacity building</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PEOPLE -->
+    <section id="people">
+      <div class="section-title">
+        <h2>People</h2>
+        <p>
+          Minimal, real, accountable: names, roles, and functional contact pathways. No inflated team claims.
+        </p>
+      </div>
+
+      <div class="people">
+        <div class="person">
+          <div class="inner">
+            <div class="role">
+              <b>Prof. Dr. Fatih Yıldız</b>
+              <span>DIRECTOR</span>
+            </div>
+            <p>
+              Academic leadership and institutional oversight. Director of MIRC, guiding research direction,
+              program standards, and external scientific relationships.
+            </p>
+            <div class="contact">
+              <a href="mailto:director@mogan-research.center">director@mogan-research.center</a>
+              <a href="mailto:contact@mogan-research.center">office routing</a>
+            </div>
+            <div class="quote">
+              “Credibility is earned through artifacts: work that can be inspected, challenged, and reused.”
+            </div>
+          </div>
+        </div>
+
+        <div class="person">
+          <div class="inner">
+            <div class="role">
+              <b>[Your Name]</b>
+              <span>REPRESENTATIVE, RESEARCH CENTER</span>
+            </div>
+            <p>
+              Institutional representation and delivery leadership. Program shaping, partnerships, and translation of research outputs
+              into briefs, training modules, and decision-ready documents.
+            </p>
+            <div class="contact">
+              <a href="mailto:firstname.lastname@mogan-research.center">firstname.lastname@mogan-research.center</a>
+              <a href="mailto:partnerships@mogan-research.center">partnerships</a>
+              <a href="mailto:programs@mogan-research.center">programs</a>
+            </div>
+            <div class="quote">
+              “We build outputs that survive the real world: procurement, regulation, and time pressure.”
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERSHIPS + CONTACT -->
+    <section id="partnerships">
+      <div class="ctaBand">
+        <div class="inner">
+          <h3>Partnerships & Institutional Work</h3>
+          <p>
+            We collaborate through defined modes: research collaboration, executive training, advisory engagements,
+            and hosted workshops. If you represent an institution, start with a scoped inquiry—two minutes.
+          </p>
+
+          <div class="row">
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn primary" href="mailto:partnerships@mogan-research.center"><span class="dot" aria-hidden="true"></span>Start a Partnership Inquiry</a>
+              <a class="btn" href="mailto:media@mogan-research.center">Media / Speaking</a>
+              <a class="btn" href="mailto:programs@mogan-research.center">Programs Office</a>
+            </div>
+
+            <!-- Newsletter box (front-end only; connect to Mailchimp/Buttondown/etc.) -->
+            <form class="form" id="newsletter" onsubmit="return subscribe(event)">
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="Newsletter (optional) — your email" required />
+              <button class="btn" type="submit">Request Updates</button>
+            </form>
+          </div>
+
+          <div id="note" class="fine" style="margin-top:12px"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>
+          Ankara (Gölbaşı), Türkiye • Functional routing for faster response. Use category emails to reach the right office.
+        </p>
+      </div>
+
+      <div class="cards3">
+        <div class="tile">
+          <div class="inner">
+            <h4>Office</h4>
+            <ul>
+              <li>Ankara (Gölbaşı), Türkiye</li>
+              <li><a href="mailto:contact@mogan-research.center" style="text-decoration:underline">contact@mogan-research.center</a></li>
+              <li>For visits: request scheduling by email.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">location</span><span class="badge">routing</span><span class="badge">scheduling</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Institutional Channels</h4>
+            <ul>
+              <li><a href="mailto:partnerships@mogan-research.center" style="text-decoration:underline">partnerships@mogan-research.center</a></li>
+              <li><a href="mailto:programs@mogan-research.center" style="text-decoration:underline">programs@mogan-research.center</a></li>
+              <li><a href="mailto:media@mogan-research.center" style="text-decoration:underline">media@mogan-research.center</a></li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">partnerships</span><span class="badge">programs</span><span class="badge">media</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="inner">
+            <h4>Director’s Office</h4>
+            <ul>
+              <li><a href="mailto:director@mogan-research.center" style="text-decoration:underline">director@mogan-research.center</a></li>
+              <li>Scientific governance and institutional oversight.</li>
+              <li>Use partnerships/programs for operational matters.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">governance</span><span class="badge">oversight</span><span class="badge">institutional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footgrid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+            <div class="mark" aria-hidden="true" style="width:34px;height:34px;border-radius:14px"></div>
+            <div>
+              <div style="font-weight:720; letter-spacing:-.2px">Mogan International Research Center (MIRC)</div>
+              <div class="fine">Private research & training • Ankara (Gölbaşı), Türkiye</div>
+            </div>
+          </div>
+          <div class="fine">
+            © <span id="y"></span> MIRC. All rights reserved. <br/>
+            This website is a public-facing institutional surface for research, programs, and partnerships.
+            For confidential engagements, use the appropriate routing email.
+          </div>
+        </div>
+        <div class="footlinks">
+          <a href="#center">Governance</a>
+          <a href="#outputs">Publications</a>
+          <a href="#partnerships">Opportunities</a>
+          <a href="mailto:contact@mogan-research.center">Email</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Front-end only placeholder: connect to Mailchimp/Buttondown/ConvertKit/etc.
+    function subscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const note = document.getElementById('note');
+
+      if(!email || !email.includes('@')){
+        note.textContent = "Please enter a valid email.";
+        return false;
+      }
+
+      // Simulated success. Replace with real endpoint POST.
+      note.textContent = "Request received. If you are approved for updates, you will receive a confirmation email.";
+      document.getElementById('newsletter').reset();
+      return false;
+    }
+
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
