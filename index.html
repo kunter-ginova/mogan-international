@@ -3,9 +3,791 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#FAFAF7" />
   <title>Mogan International Research Center (MIRC)</title>
-  <meta name="description" content="Mogan International Research Center (MIRC) — private research & training. Food systems, nutrition strategy, applied risk intelligence." />
+  <meta name="description" content="Private research & training · Ankara (Gölbaşı). Decision-grade work in food systems, nutrition strategy, and standards." />
+  <meta name="theme-color" content="#0B0E14" />
 
+  <!-- Fonts (safe, modern). If offline, system fonts will be used. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #F7F8FA;
+      --paper: rgba(255,255,255,.78);
+      --paper-2: rgba(255,255,255,.62);
+      --ink: #0B0E14;
+      --ink-2:#1F2937;
+      --muted:#6B7280;
+      --line: rgba(15, 23, 42, .10);
+      --line-2: rgba(15, 23, 42, .14);
+      --shadow: 0 24px 70px rgba(11,14,20,.10);
+      --shadow-2: 0 12px 36px rgba(11,14,20,.10);
+      --radius: 22px;
+      --radius2: 28px;
+
+      /* SF studio palette (white theme, non-monotone) */
+      --accent: #2563EB;         /* cobalt */
+      --accent-2:#7C3AED;        /* violet */
+      --copper:#9A6B3F;          /* muted copper */
+      --mint:#22C55E;            /* quiet green for status */
+      --warn:#F59E0B;            /* amber for tags */
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1100px 700px at 18% 10%, rgba(37,99,235,.14), transparent 55%),
+                  radial-gradient(900px 600px at 78% 18%, rgba(124,58,237,.10), transparent 55%),
+                  radial-gradient(1000px 700px at 55% 85%, rgba(34,197,94,.08), transparent 55%),
+                  linear-gradient(180deg, #FFFFFF 0%, var(--bg) 55%, #FFFFFF 100%);
+      overflow-x:hidden;
+    }
+
+    /* subtle “institutional texture” overlay */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.04) 1px, transparent 1px) 0 0 / 120px 120px,
+        linear-gradient(0deg, rgba(15,23,42,.03) 1px, transparent 1px) 0 0 / 120px 120px;
+      opacity:.26;
+      mix-blend-mode:multiply;
+    }
+
+    /* --- Layout --- */
+    .wrap{ max-width: 1180px; margin: 0 auto; padding: 22px 20px 90px; position:relative; }
+    .nav{
+      position:sticky; top:0;
+      z-index: 20;
+      padding: 14px 0;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .navbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 10px 14px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 10px 30px rgba(11,14,20,.06);
+    }
+
+    .brand{ display:flex; gap: 12px; align-items:center; min-width: 260px;}
+    .brandMark{
+      width: 38px; height:38px;
+      border-radius: 12px;
+      background: radial-gradient(10px 10px at 30% 35%, rgba(255,255,255,.85), transparent 55%),
+                  linear-gradient(135deg, rgba(37,99,235,.45), rgba(124,58,237,.35));
+      box-shadow: 0 10px 24px rgba(37,99,235,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .brandMark:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 46%),
+                  radial-gradient(circle at 72% 65%, rgba(255,255,255,.35), transparent 52%);
+      transform: rotate(12deg);
+      opacity:.9;
+    }
+    .brandName{ display:flex; flex-direction:column; line-height:1.05; }
+    .brandName b{ font-size: 14.5px; letter-spacing: -0.015em; }
+    .brandName span{ font-size: 12px; color: var(--muted); }
+
+    .menu{ display:flex; gap: 18px; align-items:center; }
+    .menu a{
+      text-decoration:none;
+      color: var(--ink-2);
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: background .2s ease, transform .2s ease;
+      position:relative;
+    }
+    .menu a:hover{ background: rgba(15,23,42,.05); transform: translateY(-1px); }
+    .menu a.active:after{
+      content:"";
+      position:absolute; left: 14px; right:14px; bottom: 6px;
+      height: 2px; border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      opacity:.9;
+    }
+
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      border:1px solid var(--line-2);
+      background: rgba(255,255,255,.70);
+      color: var(--ink);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor:pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      box-shadow: 0 10px 22px rgba(11,14,20,.06);
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 36px rgba(11,14,20,.10); }
+    .btnPrimary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(37,99,235,.96), rgba(124,58,237,.88));
+      color: #fff;
+      box-shadow: 0 16px 40px rgba(37,99,235,.22);
+    }
+    .btnPrimary:hover{ box-shadow: 0 22px 56px rgba(37,99,235,.28); }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.68);
+      font-size: 12px;
+      color: var(--ink-2);
+    }
+    .dot{
+      width:8px; height:8px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--mint), rgba(34,197,94,.55));
+      box-shadow: 0 0 0 6px rgba(34,197,94,.10);
+    }
+
+    /* --- Hero --- */
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.22fr .78fr;
+      gap: 22px;
+      margin-top: 18px;
+      align-items:stretch;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.58));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 260px at 30% 20%, rgba(37,99,235,.14), transparent 60%),
+                  radial-gradient(600px 260px at 76% 30%, rgba(124,58,237,.10), transparent 62%),
+                  radial-gradient(520px 240px at 55% 90%, rgba(34,197,94,.08), transparent 62%);
+      opacity:.85;
+      pointer-events:none;
+    }
+
+    .heroMain{ padding: 28px 26px; display:flex; gap: 22px; height:100%; }
+    .heroLeft{ flex: 1; min-width: 0; position:relative; z-index:2; }
+    .kickerRow{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom: 14px; }
+    .kicker{
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(15,23,42,.72);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.62);
+    }
+
+    h1{
+      margin: 0 0 12px;
+      font-family: Fraunces, ui-serif, Georgia, serif;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .lead{
+      margin: 0 0 18px;
+      font-size: 16.5px;
+      line-height: 1.62;
+      color: rgba(31,41,55,.90);
+      max-width: 58ch;
+    }
+    .heroActions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+    .heroRight{
+      width: 330px;
+      flex: 0 0 330px;
+      position:relative; z-index:2;
+      display:flex; flex-direction:column; gap:14px;
+    }
+
+    .crestBox{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow-2);
+      padding: 14px;
+      display:flex; gap: 14px; align-items:center;
+    }
+    .crestFrame{
+      width: 86px; height: 86px;
+      border-radius: 18px;
+      border:1px solid rgba(15,23,42,.12);
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.9), rgba(255,255,255,.55));
+      display:grid; place-items:center;
+      overflow:hidden;
+      position:relative;
+    }
+    .crestFrame img{
+      width: 84px;
+      height: auto;
+      display:block;
+      filter: drop-shadow(0 10px 18px rgba(11,14,20,.18));
+      transform: translateY(1px);
+    }
+    .crestMeta b{ display:block; font-size: 13.5px; }
+    .crestMeta span{ display:block; font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+    .news{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow-2);
+      padding: 14px;
+      display:flex; flex-direction:column; gap: 10px;
+    }
+    .newsTop{
+      display:flex; justify-content:space-between; align-items:center;
+      color: rgba(31,41,55,.92);
+      font-weight: 600;
+      font-size: 12.5px;
+      letter-spacing: .02em;
+    }
+    .newsTop span{
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-weight: 500;
+      color: rgba(107,114,128,.9);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .newsItem{
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.72);
+      border-radius: 16px;
+      padding: 12px 12px;
+      display:flex; flex-direction:column; gap:6px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .newsItem:hover{ transform: translateY(-1px); box-shadow: 0 12px 28px rgba(11,14,20,.10); }
+    .metaRow{
+      display:flex; justify-content:space-between; align-items:center;
+      font-size: 11.5px; color: rgba(107,114,128,.95);
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.78);
+      color: rgba(31,41,55,.92);
+      font-family: Inter, system-ui;
+      font-size: 11px;
+      letter-spacing: .01em;
+    }
+    .tag i{
+      width:7px; height:7px; border-radius: 9px; display:inline-block;
+      background: linear-gradient(135deg, var(--warn), rgba(245,158,11,.55));
+      box-shadow: 0 0 0 5px rgba(245,158,11,.10);
+    }
+    .newsItem b{ font-size: 13.5px; color: var(--ink); letter-spacing: -0.01em; }
+    .newsItem p{ margin:0; font-size: 12.8px; line-height: 1.45; color: rgba(31,41,55,.86); }
+
+    /* --- Sections --- */
+    .section{
+      margin-top: 34px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .sectionHead{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap: 18px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 68ch;
+      line-height:1.5;
+      text-align:right;
+    }
+
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .miniCard{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.62));
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(11,14,20,.06);
+      padding: 18px 18px 16px;
+      position:relative;
+      overflow:hidden;
+      min-height: 130px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .miniCard:hover{ transform: translateY(-2px); box-shadow: 0 18px 44px rgba(11,14,20,.10); }
+    .miniCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(520px 200px at 20% 20%, rgba(37,99,235,.14), transparent 60%),
+                  radial-gradient(520px 200px at 80% 30%, rgba(124,58,237,.10), transparent 62%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .miniCard > *{ position:relative; z-index:2; }
+    .miniCard b{ font-size: 15px; display:block; margin-bottom: 8px; letter-spacing:-0.01em; }
+    .miniCard p{ margin:0; font-size: 13px; line-height: 1.5; color: rgba(31,41,55,.88); }
+    .miniCard .arrow{
+      margin-top: 14px;
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(37,99,235,.95);
+      text-decoration:none;
+    }
+    .miniCard .arrow svg{ width:14px; height:14px; }
+
+    /* People */
+    .peopleGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .person{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(11,14,20,.06);
+      padding: 16px 16px;
+      display:flex; gap: 14px; align-items:flex-start;
+      position:relative; overflow:hidden;
+    }
+    .person:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(420px 160px at 18% 20%, rgba(34,197,94,.10), transparent 62%),
+                  radial-gradient(420px 160px at 80% 18%, rgba(37,99,235,.12), transparent 62%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .person > *{ position:relative; z-index:2; }
+    .avatar{
+      width: 46px; height:46px; border-radius: 14px;
+      border:1px solid rgba(15,23,42,.12);
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.9), rgba(255,255,255,.55)),
+        linear-gradient(135deg, rgba(37,99,235,.25), rgba(124,58,237,.20));
+      display:grid; place-items:center;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      color: rgba(15,23,42,.70);
+      font-weight: 600;
+      letter-spacing:.06em;
+    }
+    .person b{ display:block; font-size: 14px; letter-spacing:-0.01em; margin-bottom: 4px; }
+    .person p{ margin:0; color: rgba(31,41,55,.86); font-size: 13px; line-height:1.45; }
+    .pill{
+      margin-left:auto;
+      font-family:"JetBrains Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing:.10em;
+      text-transform: uppercase;
+      color: rgba(107,114,128,.95);
+      border:1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.72);
+      padding: 6px 10px;
+      border-radius: 999px;
+      height: fit-content;
+      white-space:nowrap;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 44px;
+      border-top: 1px solid rgba(15,23,42,.10);
+      padding-top: 20px;
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+      color: rgba(31,41,55,.86);
+    }
+    footer b{ display:block; margin-bottom: 6px; }
+    footer a{ color: rgba(37,99,235,.95); text-decoration:none; }
+    footer a:hover{ text-decoration:underline; }
+    .fine{
+      margin-top: 12px;
+      grid-column: 1 / -1;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color: rgba(107,114,128,.92);
+      font-size: 12px;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .mono{ font-family:"JetBrains Mono", ui-monospace, monospace; }
+
+    /* Responsive */
+    @media (max-width: 1020px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .heroMain{ flex-direction:column; }
+      .heroRight{ width: 100%; flex: 1; }
+      h1{ font-size: 46px; }
+      .cards3{ grid-template-columns: 1fr; }
+      .peopleGrid{ grid-template-columns: 1fr; }
+      footer{ grid-template-columns: 1fr; }
+      .sectionHead{ flex-direction:column; align-items:flex-start; }
+      .sectionHead p{ text-align:left; }
+      .brand{ min-width: auto; }
+      .menu{ display:none; }
+    }
+
+    /* Motion (subtle) */
+    @media (prefers-reduced-motion: no-preference){
+      .floaty{
+        animation: floaty 10s ease-in-out infinite;
+      }
+      @keyframes floaty{
+        0%,100%{ transform: translateY(0px); }
+        50%{ transform: translateY(-6px); }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="nav">
+      <div class="navbar">
+        <div class="brand">
+          <div class="brandMark" aria-hidden="true"></div>
+          <div class="brandName">
+            <b>Mogan International Research Center (MIRC)</b>
+            <span>Private research & training · Ankara (Gölbaşı)</span>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="Primary">
+          <a class="active" href="#topics">Topics</a>
+          <a href="#publications">Publications</a>
+          <a href="#people">People</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <span class="chip"><span class="dot"></span> Operational since 2015</span>
+          <button class="btn btnPrimary" onclick="scrollToId('contact')">Contact</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="heroGrid" id="top">
+      <section class="card heroMain">
+        <div class="heroLeft">
+          <div class="kickerRow">
+            <span class="kicker">mogan-irc.org</span>
+            <span class="kicker">research · training · advisory</span>
+          </div>
+
+          <h1>Research that survives real decisions.</h1>
+
+          <p class="lead">
+            A private, internationally oriented research center producing decision-grade work in
+            food systems, nutrition strategy, and standards under real-world constraints.
+          </p>
+
+          <div class="heroActions">
+            <button class="btn btnPrimary" onclick="scrollToId('topics')">Explore Topics</button>
+            <button class="btn" onclick="toggleEmailPanel()">Email Office</button>
+          </div>
+
+          <!-- lightweight “email office” panel -->
+          <div id="emailPanel" style="margin-top:16px; display:none;">
+            <div class="newsItem" style="border-radius:18px;">
+              <div class="metaRow">
+                <span>Routing</span>
+                <span class="tag"><i></i> institutional</span>
+              </div>
+              <b class="mono">representation@mogan-irc.org</b>
+              <p style="margin-top:6px;">
+                Use role-based addresses for continuity. Partnership and program aliases can route to the same office.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="heroRight">
+          <div class="crestBox floaty">
+            <div class="crestFrame" title="MIRC Institutional Emblem">
+              <img src="assets/MIRC-crest.png" alt="MIRC Institutional Emblem" />
+            </div>
+            <div class="crestMeta">
+              <b>Institutional Emblem</b>
+              <span>Formal mark for covers, briefs, and official correspondence.</span>
+            </div>
+          </div>
+
+          <div class="news">
+            <div class="newsTop">
+              <div>RESEARCH NEWS</div>
+              <span>Updated</span>
+            </div>
+
+            <div class="newsItem">
+              <div class="metaRow">
+                <span>Jan 2026</span>
+                <span class="tag"><i></i> Food Systems</span>
+              </div>
+              <b>Resilience Brief Series</b>
+              <p>Short, versioned briefs for institutional continuity planning and decision support.</p>
+            </div>
+
+            <div class="newsItem">
+              <div class="metaRow">
+                <span>Jan 2026</span>
+                <span class="tag"><i></i> Nutrition</span>
+              </div>
+              <b>Claims Literacy Module</b>
+              <p>Evidence thresholds that survive audit, procurement, and regulatory scrutiny.</p>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <!-- Topics -->
+    <section class="section" id="topics">
+      <div class="sectionHead">
+        <h2>Topic Specials</h2>
+        <p>Focused programs where evidence becomes institutional posture.</p>
+      </div>
+
+      <div class="cards3">
+        <article class="miniCard">
+          <b>Food Systems & Security</b>
+          <p>Fragility mapping, trade exposure, and resilience options across supply chains.</p>
+          <a class="arrow" href="#contact" onclick="scrollToId('contact'); return false;">
+            Request brief
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="miniCard">
+          <b>Nutrition Strategy</b>
+          <p>Policy-grade translation of evidence into program design and claims governance.</p>
+          <a class="arrow" href="#publications" onclick="scrollToId('publications'); return false;">
+            View outputs
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="miniCard">
+          <b>Risk & Standards</b>
+          <p>Operational literacy under real constraints: verification, labeling, and compliance design.</p>
+          <a class="arrow" href="#contact" onclick="scrollToId('contact'); return false;">
+            Engage
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="section" id="publications">
+      <div class="sectionHead">
+        <h2>Publications</h2>
+        <p>Versioned outputs. Clear provenance. Minimal rhetoric.</p>
+      </div>
+
+      <div class="cards3">
+        <article class="miniCard">
+          <b class="mono">Working Paper · WP-2026-01</b>
+          <p>Decision-grade framing for food-security exposure and resilience levers.</p>
+          <a class="arrow" href="#contact" onclick="scrollToId('contact'); return false;">
+            Request PDF
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="miniCard">
+          <b class="mono">Brief Series · RS-2026</b>
+          <p>Short, audit-safe briefs that institutions can operationalize immediately.</p>
+          <a class="arrow" href="#contact" onclick="scrollToId('contact'); return false;">
+            Subscribe
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="miniCard">
+          <b class="mono">Standards Note · CLM-01</b>
+          <p>Claims literacy: what can be said, what can be proven, and what survives review.</p>
+          <a class="arrow" href="#contact" onclick="scrollToId('contact'); return false;">
+            Request note
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- People -->
+    <section class="section" id="people">
+      <div class="sectionHead">
+        <h2>People</h2>
+        <p>Accountable leadership and institutional representation.</p>
+      </div>
+
+      <div class="peopleGrid">
+        <div class="person">
+          <div class="avatar">FY</div>
+          <div>
+            <b>Prof. Dr. Fatih Yıldız</b>
+            <p>Director · Scientific leadership and institutional oversight.</p>
+          </div>
+          <div class="pill">Director</div>
+        </div>
+
+        <div class="person">
+          <div class="avatar">SP</div>
+          <div>
+            <b>Office of Strategic Programs & Partnerships</b>
+            <p>Center representation · Programs, partnerships, and external coordination.</p>
+          </div>
+          <div class="pill">Representation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="sectionHead">
+        <h2>Contact</h2>
+        <p>Use role-based addresses for continuity and routing.</p>
+      </div>
+
+      <div class="cards3">
+        <article class="miniCard">
+          <b class="mono">representation@mogan-irc.org</b>
+          <p>Primary institutional voice and external coordination.</p>
+          <a class="arrow" href="mailto:representation@mogan-irc.org">Email</a>
+        </article>
+
+        <article class="miniCard">
+          <b class="mono">partnerships@mogan-irc.org</b>
+          <p>MoUs, collaboration proposals, joint programs.</p>
+          <a class="arrow" href="mailto:partnerships@mogan-irc.org">Email</a>
+        </article>
+
+        <article class="miniCard">
+          <b class="mono">programs@mogan-irc.org</b>
+          <p>Training modules, brief series, events.</p>
+          <a class="arrow" href="mailto:programs@mogan-irc.org">Email</a>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <b>Mogan International Research Center (MIRC)</b>
+        <div>Private research & training</div>
+        <div>Ankara (Gölbaşı), Türkiye</div>
+        <div class="mono" style="margin-top:8px;">mogan-irc.org</div>
+      </div>
+
+      <div>
+        <b>Navigation</b>
+        <div><a href="#topics" onclick="scrollToId('topics'); return false;">Topics</a></div>
+        <div><a href="#publications" onclick="scrollToId('publications'); return false;">Publications</a></div>
+        <div><a href="#people" onclick="scrollToId('people'); return false;">People</a></div>
+        <div><a href="#contact" onclick="scrollToId('contact'); return false;">Contact</a></div>
+      </div>
+
+      <div>
+        <b>Office</b>
+        <div><a href="mailto:representation@mogan-irc.org">representation@mogan-irc.org</a></div>
+        <div><a href="mailto:partnerships@mogan-irc.org">partnerships@mogan-irc.org</a></div>
+        <div style="margin-top:10px; color: rgba(107,114,128,.92);">
+          Directed by <span style="color: rgba(31,41,55,.92); font-weight:600;">Prof. Dr. Fatih Yıldız</span>
+        </div>
+      </div>
+
+      <div class="fine">
+        <div>© <span id="year"></span> Mogan International Research Center. All rights reserved.</div>
+        <div class="mono">Evidence · Continuity · Auditability</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Tiny helpers — keeps it “dynamic” without bloat.
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function toggleEmailPanel(){
+      const p = document.getElementById('emailPanel');
+      if(!p) return;
+      p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
+    }
+
+    // Active link highlighting (simple)
+    const links = Array.from(document.querySelectorAll('.menu a'));
+    const sections = ['topics','publications','people','contact'].map(id => document.getElementById(id)).filter(Boolean);
+
+    const io = new IntersectionObserver((entries)=>{
+      const visible = entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(!visible) return;
+      const id = visible.target.id;
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+id));
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: [0.05, 0.15, 0.30] });
+
+    sections.forEach(s=>io.observe(s));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
