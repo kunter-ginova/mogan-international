@@ -1,1 +1,252 @@
+<!-- 404.html  (place at repo root) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOGAN-IRC — 404</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    /* Page-specific polish while staying consistent with main.css */
+    .p404 {
+      padding: 82px 0 84px;
+    }
+    .p404 .wrap {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .code {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .code .badge {
+      font-weight: 600;
+      letter-spacing: .12em;
+      font-size: .80rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      opacity: .9;
+    }
+    .code .trace {
+      height: 10px;
+      width: 120px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(11,13,18,.10), rgba(11,13,18,.02));
+      position: relative;
+      overflow: hidden;
+    }
+    .code .trace:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent, rgba(11,13,18,.18), transparent);
+      transform: translateX(-60%);
+      animation: sweep 2.4s ease-in-out infinite;
+      opacity: .8;
+    }
+    @keyframes sweep {
+      0% { transform: translateX(-70%); }
+      60% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    .p404 h1 {
+      margin: 0 0 10px;
+      font-size: 2.6rem;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+    .p404 .lede {
+      max-width: 62ch;
+      margin-bottom: 18px;
+    }
+
+    .actions-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .hint {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.82);
+      opacity: .92;
+      font-size: .95rem;
+    }
+    .hint b { font-weight: 600; }
+    .hint code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .92em;
+    }
+
+    .markbox {
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.62));
+      explain: none;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      min-height: 340px;
+      display: grid;
+      place-items: center;
+    }
+    .markbox:before {
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 320px at 35% 25%, rgba(11,13,18,.08), transparent 62%),
+        radial-gradient(520px 260px at 70% 60%, rgba(11,13,18,.06), transparent 55%);
+      pointer-events:none;
+    }
+    .markbox img {
+      width: min(420px, 82%);
+      height: auto;
+      position: relative;
+      filter: drop-shadow(0 18px 28px rgba(10,12,18,.10));
+      opacity: .98;
+    }
+    .smallprint {
+      margin-top: 10px;
+      opacity: .7;
+      font-size: .88rem;
+    }
+
+    @media (max-width: 980px) {
+      .p404 .wrap { grid-template-columns: 1fr; }
+      .markbox { min-height: 280px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .code .trace:after { animation: none; }
+      .markbox img { filter: none; }
+    }
+  </style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="container bar">
+    <a class="brand" href="index.html" aria-label="MOGAN-IRC">
+      <div class="mark">M</div>
+      <div class="name">
+        <b>MOGAN-IRC</b>
+        <span data-i18n data-en="International Research Center" data-tr="Uluslararası Araştırma Merkezi">International Research Center</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" data-i18n data-en="Home" data-tr="Ana Sayfa">Home</a>
+      <a href="research.html" data-i18n data-en="Research" data-tr="Araştırma">Research</a>
+      <a href="publications.html" data-i18n data-en="Publications" data-tr="Yayınlar">Publications</a>
+      <a href="contact.html" data-i18n data-en="Contact" data-tr="İletişim">Contact</a>
+    </nav>
+
+    <div class="tools">
+      <span class="pill" data-i18n data-en="Institutional Site" data-tr="Kurumsal Site">Institutional Site</span>
+      <button class="btn" type="button" data-lang-toggle aria-pressed="false" aria-label="Toggle language">
+        <span data-i18n data-en="Language" data-tr="Dil">Language</span>
+        <span class="pill" data-lang-label>EN</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="p404">
+    <div class="container">
+      <div class="wrap">
+        <div>
+          <div class="code">
+            <span class="badge">404</span>
+            <span class="trace" aria-hidden="true"></span>
+            <span class="pill" data-i18n data-en="Route not found" data-tr="Sayfa bulunamadı">Route not found</span>
+          </div>
+
+          <h1 data-i18n
+              data-en="This page does not exist."
+              data-tr="Bu sayfa mevcut değil.">
+            This page does not exist.
+          </h1>
+
+          <p class="lede" data-i18n
+             data-en="The address may be outdated or typed incorrectly. Use the institutional entry points below."
+             data-tr="Adres eski olabilir ya da yanlış yazılmış olabilir. Aşağıdaki kurumsal giriş noktalarını kullan.">
+            The address may be outdated or typed incorrectly. Use the institutional entry points below.
+          </p>
+
+          <div class="actions-row">
+            <a class="cta" href="index.html" data-i18n data-en="Return to Home" data-tr="Ana Sayfaya dön">Return to Home</a>
+            <a class="ghost" href="research.html" data-i18n data-en="Research programs" data-tr="Araştırma programları">Research programs</a>
+            <a class="ghost" href="publications.html" data-i18n data-en="Publications archive" data-tr="Yayın arşivi">Publications archive</a>
+            <a class="ghost" href="contact.html" data-i18n data-en="Contact" data-tr="İletişim">Contact</a>
+          </div>
+
+          <div class="hint" role="note">
+            <span data-i18n
+              data-en="If you reached this page from an external link, please report it to"
+              data-tr="Bu sayfaya dış bir bağlantıdan geldiysen, lütfen şuraya bildir:">
+              If you reached this page from an external link, please report it to
+            </span>
+            <b><a href="mailto:contact@mogan-irc.org">contact@mogan-irc.org</a></b>.
+            <div class="smallprint">
+              <span data-i18n
+                data-en="Tip: keep the canonical address as"
+                data-tr="İpucu: kanonik adresi şu şekilde kullan:">
+                Tip: keep the canonical address as
+              </span>
+              <code>https://mogan-irc.org/</code>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="markbox" aria-label="MOGAN-IRC mark">
+            <img src="assets/img/MIRC-signature.png" alt="MOGAN-IRC signature mark" />
+          </div>
+          <div class="smallprint" data-i18n
+               data-en="Mogan International Research Center — institutional web presence."
+               data-tr="Mogan Uluslararası Araştırma Merkezi — kurumsal web varlığı.">
+            Mogan International Research Center — institutional web presence.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container grid">
+    <div class="mini">
+      <img src="assets/img/MIRC-crest.png" alt="MOGAN-IRC crest" />
+      <span>© MOGAN International Research Center</span>
+    </div>
+    <div>
+      <a href="https://mogan-irc.org">mogan-irc.org</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
 
